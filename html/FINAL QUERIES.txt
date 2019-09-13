@@ -1,0 +1,159 @@
+//1HOME PAGE QUERY
+1.1 PRICE RANGE OF WHOLE LAS VEGAS
+select t.range as "PRICESES", count(*) as "FREQUENCY"
+from (
+  select case  
+when DAILY_PRICE between 0 and 50 then '0 - 50' 
+when DAILY_PRICE between 50 and 100 then '50 - 100' 
+when DAILY_PRICE between 100 and 150 then '100 - 150' 
+when DAILY_PRICE between 150 and 200 then '150 - 200' 
+when DAILY_PRICE between 200 and 250 then '200 - 250' 
+when DAILY_PRICE between 250 and 300 then '250 - 300' 
+when DAILY_PRICE between 300 and 350 then '300 - 350' 
+when DAILY_PRICE between 350 and 400 then '350 - 400' 
+when DAILY_PRICE between 400 and 450 then '400 - 450' 
+when DAILY_PRICE between 450 and 500 then '450 - 500' 
+when DAILY_PRICE between 500 and 550 then '500 - 550' 
+when DAILY_PRICE between 550 and 600 then '550 - 600' 
+when DAILY_PRICE between 600 and 650 then '600 - 650' 
+when DAILY_PRICE between 650 and 700 then '650 - 700' 
+when DAILY_PRICE between 700 and 750 then '700 - 750' 
+when DAILY_PRICE between 750 and 800 then '750 - 800' 
+when DAILY_PRICE between 800 and 850 then '800 - 850' 
+when DAILY_PRICE between 850 and 900 then '850 - 900' 
+when DAILY_PRICE between 900 and 950 then '900 - 950' 
+when DAILY_PRICE between 950 and 1000 then '950 - 1000' 
+when DAILY_PRICE between 1000 and 1050 then '1000 - 1050' 
+when DAILY_PRICE between 1050 and 1100 then '1050 - 1100' 
+when DAILY_PRICE between 1100 and 1150 then '1100 - 1150' 
+when DAILY_PRICE between 1150 and 1200 then '1150 - 1200' 
+when DAILY_PRICE between 1200 and 1250 then '1200 - 1250' 
+when DAILY_PRICE between 1250 and 1300 then '1250 - 1300' 
+when DAILY_PRICE between 1300 and 1350 then '1300 - 1350' 
+when DAILY_PRICE between 1350 and 1400 then '1350 - 1400' 
+when DAILY_PRICE between 1400 and 1450 then '1400 - 1450' 
+when DAILY_PRICE between 1450 and 1500 then '1450 - 1500' 
+when DAILY_PRICE between 1500 and 1550 then '1500 - 1550' 
+when DAILY_PRICE between 1550 and 1600 then '1550 - 1600' 
+when DAILY_PRICE between 1600 and 1650 then '1600 - 1650' 
+when DAILY_PRICE between 1650 and 1700 then '1650 - 1700' 
+when DAILY_PRICE between 1700 and 1750 then '1700 - 1750' 
+when DAILY_PRICE between 1750 and 1800 then '1750 - 1800' 
+when DAILY_PRICE between 1800 and 1850 then '1800 - 1850'
+    else '1850-5500' end as range
+  FROM (SELECT DAILY_PRICE FROM PROPERTY ORDER BY DAILY_PRICE ASC)) t
+group by t.range order by 1;
+
+1.2 BUS FREQUENCY GRAPH OF WHOLE LAS VEGAS
+select t.range as TIMINGS, count(*) as "FREQUENCY"
+from (
+  select case  
+when VAL between 0 and 3600 then '0 - 1' 
+when VAL between 3600 and 7200 then '1 - 2' 
+when VAL between 7200 and 10800 then '2 - 3' 
+when VAL between 10800 and 14400 then '3 - 4' 
+when VAL between 14400 and 18000 then '4 - 5' 
+when VAL between 18000 and 21600 then '5 - 6' 
+when VAL between 21600 and 25200 then '6 - 7' 
+when VAL between 25200 and 28800 then '7 - 8' 
+when VAL between 28800 and 32400 then '8 - 9' 
+when VAL between 32400 and 36000 then '9 - 10' 
+when VAL between 36000 and 39600 then '10 - 11' 
+when VAL between 39600 and 43200 then '11 - 12' 
+when VAL between 43200 and 46800 then '12 - 13' 
+when VAL between 46800 and 50400 then '13 - 14' 
+when VAL between 50400 and 54000 then '14 - 15' 
+when VAL between 54000 and 57600 then '15 - 16' 
+when VAL between 57600 and 61200 then '16 - 17' 
+when VAL between 61200 and 64800 then '17 - 18' 
+when VAL between 64800 and 68400 then '18 - 19' 
+when VAL between 68400 and 72000 then '19 - 20' 
+when VAL between 72000 and 75600 then '20 - 21' 
+when VAL between 75600 and 79200 then '21 - 22' 
+when VAL between 79200 and 82800 then '22 - 23' 
+when VAL between 82800 and 86400 then '23 - 24' 
+    else '20-99' end as range
+  FROM (SELECT ARRIVAL_TIME*86400 AS VAL FROM BUSES ORDER BY VAL)) t
+group by t.range order by 1;
+
+
+**********************************************************************************************************************************************
+//2ND PAGE QUERY
+2.1/*TOP 10 PROPERTIES OR LESS FROM THE GIVEN POINT*/
+SELECT * FROM (SELECT DISTINCT PID FROM PROPERTY_LOCATION  WHERE (
+property_lati >X-0.02000/*BOTTOM*/ AND property_lati <X+0.02000/*TOP*/ AND 
+property_longi >Y-0.02000 /*LEFT*/AND property_longi <Y+0.02000/*RIGHT*/))WHERE ROWNUM<11;
+
+
+**********************************************************************************************************************************************
+//3RD PAGE QUERY
+//3.1 UPLOAD ALL THE DATA (DONE)
+//3.2 FIND THE TRASPORTATION GRAPH OF ALL THE STOPS NEARBY PROPERTY
+/*FREQUENCY GRAPH OF A BUSES NEARBY PROPERTY*/
+select t.range as TIMINGS, count(*) as "FREQUENCY"
+from (
+  select case  
+when VAL between 0 and 3600 then '0 - 1' 
+when VAL between 3600 and 7200 then '1 - 2' 
+when VAL between 7200 and 10800 then '2 - 3' 
+when VAL between 10800 and 14400 then '3 - 4' 
+when VAL between 14400 and 18000 then '4 - 5' 
+when VAL between 18000 and 21600 then '5 - 6' 
+when VAL between 21600 and 25200 then '6 - 7' 
+when VAL between 25200 and 28800 then '7 - 8' 
+when VAL between 28800 and 32400 then '8 - 9' 
+when VAL between 32400 and 36000 then '9 - 10' 
+when VAL between 36000 and 39600 then '10 - 11' 
+when VAL between 39600 and 43200 then '11 - 12' 
+when VAL between 43200 and 46800 then '12 - 13' 
+when VAL between 46800 and 50400 then '13 - 14' 
+when VAL between 50400 and 54000 then '14 - 15' 
+when VAL between 54000 and 57600 then '15 - 16' 
+when VAL between 57600 and 61200 then '16 - 17' 
+when VAL between 61200 and 64800 then '17 - 18' 
+when VAL between 64800 and 68400 then '18 - 19' 
+when VAL between 68400 and 72000 then '19 - 20' 
+when VAL between 72000 and 75600 then '20 - 21' 
+when VAL between 75600 and 79200 then '21 - 22' 
+when VAL between 79200 and 82800 then '22 - 23' 
+when VAL between 82800 and 86400 then '23 - 24' 
+    else '20-99' end as range
+  FROM (SELECT STOP_ID,
+ARRIVAL_TIME*86400 AS VAL FROM(SELECT DISTINCT B.STOP_ID, B.ARRIVAL_TIME FROM (SELECT DISTINCT stop_id FROM BUS_STOPS 
+cross join PROPERTY_LOCATION p WHERE (P.PID=12918687 AND LATITUDE>p.property_lati-0.00950/*BOTTOM*/ AND 
+LATITUDE <p.property_lati+0.00950/*TOP*/ AND LONGITUDE>p.property_longi-0.00120 /*LEFT*/AND 
+LONGITUDE<p.property_longi+0.00120/*RIGHT*/)) BS inner join BUSES B on BS.STOP_ID=B.STOP_ID ORDER BY B.ARRIVAL_TIME) 
+ORDER BY VAL)) t
+group by t.range order by 1;
+
+//3.3FREQUENCY GRAPH OF A SINGLE BUS STOP'S TIMINGS
+select t.range as TIMINGS, count(*) as "FREQUENCY"
+from (
+  select case  
+when VAL between 0 and 3600 then '0 - 1' 
+when VAL between 3600 and 7200 then '1 - 2' 
+when VAL between 7200 and 10800 then '2 - 3' 
+when VAL between 10800 and 14400 then '3 - 4' 
+when VAL between 14400 and 18000 then '4 - 5' 
+when VAL between 18000 and 21600 then '5 - 6' 
+when VAL between 21600 and 25200 then '6 - 7' 
+when VAL between 25200 and 28800 then '7 - 8' 
+when VAL between 28800 and 32400 then '8 - 9' 
+when VAL between 32400 and 36000 then '9 - 10' 
+when VAL between 36000 and 39600 then '10 - 11' 
+when VAL between 39600 and 43200 then '11 - 12' 
+when VAL between 43200 and 46800 then '12 - 13' 
+when VAL between 46800 and 50400 then '13 - 14' 
+when VAL between 50400 and 54000 then '14 - 15' 
+when VAL between 54000 and 57600 then '15 - 16' 
+when VAL between 57600 and 61200 then '16 - 17' 
+when VAL between 61200 and 64800 then '17 - 18' 
+when VAL between 64800 and 68400 then '18 - 19' 
+when VAL between 68400 and 72000 then '19 - 20' 
+when VAL between 72000 and 75600 then '20 - 21' 
+when VAL between 75600 and 79200 then '21 - 22' 
+when VAL between 79200 and 82800 then '22 - 23' 
+when VAL between 82800 and 86400 then '23 - 24' 
+    else '20-99' end as range
+  FROM (SELECT ARRIVAL_TIME*86400 AS VAL FROM BUSES WHERE STOP_ID=3215)) t
+group by t.range order by 1;

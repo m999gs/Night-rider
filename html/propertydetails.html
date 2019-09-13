@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>DBMS</title>
+  <meta name="description" content="dbms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  <!-- style -->
+  <link rel="stylesheet" href="../assets/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/glyphicons/glyphicons.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="../assets/material-design-icons/material-design-icons.css" type="text/css" />
+
+  <link rel="stylesheet" href="../assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <!-- build:css ../assets/styles/app.min.css -->
+  <link rel="stylesheet" href="../assets/styles/app.css" type="text/css" />
+  <!-- endbuild -->
+  <link rel="stylesheet" href="../assets/styles/font.css" type="text/css" />
+</head>
+<body>
+  <div class="app" id="app">
+
+<!-- ############ LAYOUT START-->
+
+  <!-- aside -->
+  <div id="aside" class="app-aside modal fade folded md show-text nav-dropdown">
+    <div class="left navside black dk" layout="column">
+      <div class="navbar no-radius">
+        <!-- brand -->
+
+        <!-- / brand -->
+      </div>
+      <div flex class="hide-scroll">
+          <nav class="scroll nav-active-primary">
+            
+              <ul class="nav" ui-nav>
+                <li class="nav-header hidden-folded">
+                  <small class="text-muted">Main</small>
+                </li>
+                
+                <li>
+                  <a href="#" >
+                    <span class="nav-icon">
+                      <i class="material-icons">&#xe3fc;
+                        <span ui-include="'../assets/images/i_0.svg'"></span>
+                      </i>
+                    </span>
+                    <span class="nav-text">Home</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" >
+                    <span class="nav-icon">
+                      <i class="material-icons">&#xe3fc;
+                        <span ui-include="'../assets/images/i_0.svg'"></span>
+                      </i>
+                    </span>
+                    <span class="nav-text">Search</span>
+                  </a>
+                </li>
+				                <li>
+                  <a href="#" >
+                    <span class="nav-icon">
+                      <i class="material-icons">&#xe3fc;
+                        <span ui-include="'../assets/images/i_0.svg'"></span>
+                      </i>
+                    </span>
+                    <span class="nav-text">Profile</span>
+                  </a>
+                </li>
+            
+              </ul>
+          </nav>
+      </div>
+      <div flex-no-shrink>
+        <div ui-include="'../views/blocks/aside.top.1.html'"></div>
+      </div>
+    </div>
+  </div>
+  <!-- / aside -->
+  
+  <!-- content -->
+  <div id="content" class="app-content box-shadow-z3" role="main">
+    <div class="app-header white box-shadow">
+        <div class="navbar navbar-toggleable-sm flex-row align-items-center">
+            <!-- Open side - Naviation on mobile -->
+            <a data-toggle="modal" data-target="#aside" class="hidden-lg-up mr-3">
+              <i class="material-icons">&#xe5d2;</i>
+            </a>
+            <!-- / -->
+        
+            <!-- Page title - Bind to $state's title -->
+            <div class="mb-0 h5 no-wrap" ng-bind="$state.current.data.title" id="pageTitle"></div>
+        
+            <!-- navbar collapse -->
+
+            <!-- / navbar collapse -->
+        
+            <!-- navbar right -->
+
+            <!-- / navbar right -->
+        </div>
+    </div>
+
+    <div ui-view class="app-body" id="view">
+      
+<!-- ############ PAGE START-->
+<div class="dker">
+  <div class="tab-content tab-alt">
+    <div class="tab-pane in active" id="world">
+      <div class="padding">
+
+  <div class="row">
+  <div class="col-md-6">
+    <div class="box">
+      <div class="box-header">
+        <h2>Property Details</h2>
+      </div>
+      <div class="box-divider m-0"></div>
+      <ul class="list">
+        <li class="list-item">
+          <div class="list-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </p>
+            <small class="block text-muted">asdasd</small>
+          </div>
+        </li>
+        <li class="list-item">
+          <div class="list-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </p>
+            <small class="block text-muted">asdasd</small>
+          </div>
+        </li>
+        <li class="list-item">
+          <div class="list-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris </p>
+            <small class="block text-muted">asdasd</small>
+          </div>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div class="col-md-6">
+      
+
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="box">
+          <div class="box-header">
+            <h3>Transportation</h3>
+            <small>Options</small>
+          </div>
+          <div class="box-body text-center">
+            <div class="row-col">
+              <div class="row-cell">
+                <div class="inline">
+                  <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color" data-redraw="true" data-percent="75" ui-options="{
+                      percent: 75,
+                      lineWidth: 5,
+                      trackColor: 'rgba(0,0,0,0.05)',
+                      barColor: '#0cc2aa',
+                      scaleColor: 'transparent',
+                      size: 75,
+                      scaleLength: 0,
+                      lineCap: 'butt',
+                      animate:{
+                        duration:0,
+                        enabled:false
+                      }
+                    }">
+                    <div>
+                      75%
+                    </div>
+                  <canvas height="75" width="75"></canvas></div>
+                </div>
+              </div>
+              <div class="row-cell">
+                <div class="inline">
+                  <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color" data-redraw="true" data-percent="45" ui-options="{
+                      percent: 45,
+                      lineWidth: 5,
+                      trackColor: 'rgba(0,0,0,0.05)',
+                      barColor: '#fcc100',
+                      scaleColor: 'transparent',
+                      size: 75,
+                      scaleLength: 0,
+                      lineCap: 'butt',
+                      animate:{
+                        duration:0,
+                        enabled:false
+                      }
+                    }">
+                    <div>
+                      45%
+                    </div>
+                  <canvas height="75" width="75"></canvas></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="box">
+          <div class="box-header">
+            <h3>Food</h3>
+            <small>Options</small>
+          </div>
+          <div class="box-body text-center">
+            <div class="row-col">
+              <div class="row-cell">
+                <div class="inline">
+                  <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color" data-redraw="true" data-percent="75" ui-options="{
+                      percent: 75,
+                      lineWidth: 5,
+                      trackColor: 'rgba(0,0,0,0.05)',
+                      barColor: '#0cc2aa',
+                      scaleColor: 'transparent',
+                      size: 75,
+                      scaleLength: 0,
+                      lineCap: 'butt',
+                      animate:{
+                        duration:0,
+                        enabled:false
+                      }
+                    }">
+                    <div>
+                      75%
+                    </div>
+                  <canvas height="75" width="75"></canvas></div>
+                </div>
+              </div>
+              <div class="row-cell">
+                <div class="inline">
+                  <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color" data-redraw="true" data-percent="45" ui-options="{
+                      percent: 45,
+                      lineWidth: 5,
+                      trackColor: 'rgba(0,0,0,0.05)',
+                      barColor: '#fcc100',
+                      scaleColor: 'transparent',
+                      size: 75,
+                      scaleLength: 0,
+                      lineCap: 'butt',
+                      animate:{
+                        duration:0,
+                        enabled:false
+                      }
+                    }">
+                    <div>
+                      45%
+                    </div>
+                  <canvas height="75" width="75"></canvas></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="box">
+          <div class="box-header">
+            <h3>Safety</h3>
+            <small>Options</small>
+          </div>
+          <div class="box-body text-center">
+            <div class="row-col">
+              <div class="row-cell">
+                <div class="inline">
+                  <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color" data-redraw="true" data-percent="75" ui-options="{
+                      percent: 75,
+                      lineWidth: 5,
+                      trackColor: 'rgba(0,0,0,0.05)',
+                      barColor: '#0cc2aa',
+                      scaleColor: 'transparent',
+                      size: 75,
+                      scaleLength: 0,
+                      lineCap: 'butt',
+                      animate:{
+                        duration:0,
+                        enabled:false
+                      }
+                    }">
+                    <div>
+                      95%
+                    </div>
+                  <canvas height="75" width="75"></canvas></div>
+                </div>
+              </div>
+              <div class="row-cell">
+                <div class="inline">
+                  <div ui-jp="easyPieChart" class="easyPieChart" ui-refresh="app.setting.color" data-redraw="true" data-percent="45" ui-options="{
+                      percent: 45,
+                      lineWidth: 5,
+                      trackColor: 'rgba(0,0,0,0.05)',
+                      barColor: '#fcc100',
+                      scaleColor: 'transparent',
+                      size: 75,
+                      scaleLength: 0,
+                      lineCap: 'butt',
+                      animate:{
+                        duration:0,
+                        enabled:false
+                      }
+                    }">
+                    <div>
+                      45%
+                    </div>
+                  <canvas height="75" width="75"></canvas></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" > <button class="btn btn-outline b-success text-success">View More</button></a>
+    </div>
+  </div>
+    <div class="tab-pane" id="usa">
+      <div class="padding">
+
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ############ PAGE END-->
+
+    </div>
+  </div>
+  <!-- / -->
+
+  <!-- theme switcher -->
+  
+
+  <!-- / -->
+
+<!-- ############ LAYOUT END-->
+
+  </div>
+<!-- build:js scripts/app.html.js -->
+<!-- jQuery -->
+  <script src="../libs/jquery/jquery/dist/jquery.js"></script>
+<!-- Bootstrap -->
+  <script src="../libs/jquery/tether/dist/js/tether.min.js"></script>
+  <script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+<!-- core -->
+  <script src="../libs/jquery/underscore/underscore-min.js"></script>
+  <script src="../libs/jquery/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="../libs/jquery/PACE/pace.min.js"></script>
+
+  <script src="scripts/config.lazyload.js"></script>
+
+  <script src="scripts/palette.js"></script>
+  <script src="scripts/ui-load.js"></script>
+  <script src="scripts/ui-jp.js"></script>
+  <script src="scripts/ui-include.js"></script>
+  <script src="scripts/ui-device.js"></script>
+  <script src="scripts/ui-form.js"></script>
+  <script src="scripts/ui-nav.js"></script>
+  <script src="scripts/ui-screenfull.js"></script>
+  <script src="scripts/ui-scroll-to.js"></script>
+  <script src="scripts/ui-toggle-class.js"></script>
+
+  <script src="scripts/app.js"></script>
+
+  <!-- ajax -->
+  <script src="../libs/jquery/jquery-pjax/jquery.pjax.js"></script>
+  <script src="scripts/ajax.js"></script>
+<!-- endbuild -->
+</body>
+</html>
